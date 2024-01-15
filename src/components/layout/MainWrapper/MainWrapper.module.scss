@@ -1,0 +1,9 @@
+.tableWrapper {
+	@media (max-width: 933px) {
+		@apply hidden;
+	}
+
+	.booksWrapper {
+		@apply rounded-b-3xl px-2 py-1 bg-gradient-to-b from-secondary-bg from-40% to-white to-95% shadow-sm;
+	}
+}

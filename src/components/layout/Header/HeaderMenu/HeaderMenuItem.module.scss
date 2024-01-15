@@ -1,0 +1,28 @@
+.item {
+	@apply block px-0.75 py-0.3 bg-light-brown text-base w-full text-[#3e1e02]
+	rounded-lg mb-0.15 font-semibold transition-colors duration-200 ease-linear;
+	transform: translateX(100%);
+	opacity: 0;
+	animation: slideInRight 0.5s forwards;
+
+	&:hover {
+		@apply text-white;
+	}
+
+	@for $i from 1 through 6 {
+		&:nth-child(#{$i}) {
+			animation-delay: 0.1s * $i;
+		}
+	}
+}
+
+@keyframes slideInRight {
+	from {
+		transform: translateX(100%);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}

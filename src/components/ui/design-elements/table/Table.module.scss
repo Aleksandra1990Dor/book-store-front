@@ -1,0 +1,31 @@
+.table {
+	@apply bg-shadow-bg w-full h-1;
+	transform: scale(1.055);
+	clip-path: polygon(2.5% 0%, 97.5% 0%, 100% 100%, 0% 100%);
+	@media (max-width: 933px) {
+		transform: translateX(4%);
+	}
+}
+.tableBorder {
+	@apply bg-gradient-to-b from-secondary-bg from-30% to-shadow-bg to-95% w-full h-0.5 relative;
+	transform: scale(1.055);
+
+	@media (max-width: 933px) {
+		transform: translateX(4%);
+	}
+
+	&::after {
+		@apply absolute w-full h-2 bg-gradient-to-b from-black from-10% to-shadow-bg to-95%;
+		opacity: 0.2;
+		content: '';
+		top: 100%;
+		left: 0;
+		clip-path: polygon(0 0, 94.8% 0, 94.8% 98%, 0% 95%);
+		transform: translateX(calc(var(--index) * 1.4));
+		pointer-events: none;
+
+		@media (max-width: 933px) {
+			transform: skew(30deg, 0) translateX(10%);
+		}
+	}
+}

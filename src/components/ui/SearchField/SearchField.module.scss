@@ -1,0 +1,27 @@
+.wrapper {
+	@apply rounded-xl py-0.3 px-0.75 text-gray flex items-start
+  overflow-hidden w-12 border border-shadow-bg bg-white;
+
+	@media (max-width: 933px) {
+		@apply w-full px-2 py-0.75 rounded-full mb-2;
+	}
+
+	> label {
+		@apply w-full h-full flex items-end;
+	}
+}
+
+.icon {
+	@apply fill-gray text-base mr-0.3;
+	margin-top: -0.05rem;
+	@media (max-width: 933px) {
+		@apply text-xl mr-1;
+	}
+}
+
+.input {
+	@apply bg-transparent font-normal text-gray text-sm placeholder-gray w-full h-full;
+	@media (max-width: 933px) {
+		@apply text-lg;
+	}
+}

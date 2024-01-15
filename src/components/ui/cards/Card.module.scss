@@ -1,0 +1,57 @@
+.mainWrapper {
+	@apply relative h-13 w-8 transition-transform
+	duration-100 ease-linear animate-scaleIn;
+
+	&:hover {
+		transform: scale(1.015);
+	}
+}
+
+.wrapper {
+	@apply h-full w-full rounded-3xl flex flex-col relative p-1 z-3 hover:shadow-lg;
+	@media (max-width: 1024px) {
+		@apply py-1 px-0.75;
+	}
+
+	.container {
+		@apply overflow-hidden h-full w-full flex flex-col justify-between items-center mt-0.5 z-2
+		relative;
+	}
+
+	.title {
+		@apply flex w-full items-end justify-end absolute -left-5;
+		transform: rotate(0.75turn);
+		top: 35%;
+
+		> h2 {
+			@apply text-0.5-base font-semibold;
+		}
+	}
+
+	h3 {
+		@apply text-black font-semibold text-base text-center leading-none;
+	}
+}
+.shadow {
+	@apply w-full h-full absolute z-0;
+	pointer-events: none;
+	top: 2rem;
+	left: 1.1rem;
+	box-shadow: inset 10px 0 rgba(11, 11, 11, 0.17);
+	clip-path: polygon(76% 3%, 100% 60%, 100% 90%, 28% 100%, 0 60%, 10% 20%);
+	filter: blur(1px);
+	transform: scale(1.25);
+	opacity: 0.08;
+	background: rgb(62, 62, 62);
+	background: linear-gradient(
+		173deg,
+		rgba(62, 62, 62, 1) 0%,
+		rgba(234, 225, 212, 1) 78%
+	);
+}
+
+.img {
+	@apply rounded-full border-2 border-brown w-6 h-6 object-cover;
+}
+
+

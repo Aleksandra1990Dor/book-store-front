@@ -1,0 +1,19 @@
+.fileField {
+	@apply flex justify-evenly;
+
+	> span {
+		@apply text-brown inline-block text-base font-semibold;
+	}
+
+	> label {
+		@apply bg-light-brown hover:bg-brown text-white text-sm py-0.3 px-0.5 rounded-xl cursor-pointer;
+
+		> input {
+			@apply opacity-0 w-0 h-0;
+		}
+	}
+
+	.error {
+		@apply text-sm text-[#df4c47] text-center font-semibold  mt-0.3;
+	}
+}

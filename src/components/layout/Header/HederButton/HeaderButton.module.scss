@@ -1,0 +1,12 @@
+.btn {
+	@apply rounded-3xl px-1 py-0.3 text-black flex items-center
+	fill-black transition-colors duration-200 ease-linear;
+
+	span {
+		@apply ml-0.3 text-sm font-semibold leading-none;
+	}
+}
+
+.checked {
+	@apply bg-brown shadow-lg;
+}

@@ -1,0 +1,81 @@
+.wrapper {
+	@apply px-2 mb-4;
+
+	@media (max-width: 933px) {
+		@apply mb-0;
+	}
+
+	.container {
+		@apply grid px-2;
+		grid-template-columns: 35% 1fr;
+
+		@media (max-width: 933px) {
+			@apply flex flex-col gap-4;
+		}
+
+		.mobileDescription {
+			@apply hidden;
+
+			@media (max-width: 933px) {
+				@apply flex flex-col gap-1 justify-center h-full;
+			}
+		}
+
+		.singleBook {
+			@apply relative ml-2 h-14 w-full;
+
+			@media (max-width: 933px) {
+				@apply ml-0 w-max;
+			}
+		}
+
+		.mobileTable {
+			@apply hidden;
+
+			@media (max-width: 933px) {
+				@apply block relative -left-2;
+				min-width: 100vw;
+			}
+		}
+	}
+}
+
+.authorDesc {
+	@apply text-sm text-gray;
+
+	@media (max-width: 933px) {
+		@apply hidden;
+	}
+}
+
+.titleDesc {
+	@apply font-bold text-brown text-xl underline leading-none mb-0.5;
+
+	@media (max-width: 933px) {
+		@apply hidden;
+	}
+}
+
+.addToCart {
+	@apply flex items-center gap-1;
+
+	@media (max-width: 933px) {
+		@apply hidden;
+	}
+}
+
+.description {
+	@apply my-0.5 text-black text-base;
+
+	@media (max-width: 933px) {
+		@apply text-lg;
+	}
+}
+
+.info {
+	@apply flex gap-0.3 flex-col px-2;
+
+	@media (max-width: 933px) {
+		@apply px-0;
+	}
+}

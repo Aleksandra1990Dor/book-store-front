@@ -1,0 +1,110 @@
+.wrapper {
+	@apply relative mr-0.5 z-2 animate-scaleIn duration-200 ease-in-out;
+
+	.booksPages {
+		@apply absolute h-full z-2 w-0.4 -right-0.4 top-0 bg-shadow-bg border-r
+  border-black opacity-90;
+
+		clip-path: polygon(0 0, 100% 5%, 100% 95%, 0% 100%);
+		filter: blur(1px);
+	}
+
+	> img {
+		@apply block z-2;
+	}
+}
+
+.small {
+	@apply relative z-2 cursor-pointer w-4 h-5.75;
+
+	&::before {
+		@apply w-0.3 absolute left-0  bg-gradient-to-r from-black from-10% to-gray
+	  to-55% border-r border-black z-3;
+		top: 1px;
+		opacity: 0.15;
+		height: calc(100% - 2px);
+		content: '';
+		filter: blur(1px);
+		box-shadow: inset 10px 0 rgba(11, 11, 11, 0.17);
+	}
+
+	&::after {
+		@apply w-full h-full absolute bg-gradient-to-b from-black from-50% to-shadow-bg
+    to-85% opacity-20;
+		content: '';
+		top: 2rem;
+		left: 1.1rem;
+		box-shadow: inset 10px 0 rgba(11, 11, 11, 0.17);
+		clip-path: polygon(73% 0%, 90% 50%, 90% 100%, 28% 100%, 0 54%, 0% 0%);
+		transform: scale(1.5);
+		filter: blur(10px);
+		z-index: -1;
+		pointer-events: none;
+	}
+
+	img {
+		@apply rounded-sm w-5 h-5.75;
+		min-height: calc(var(--index) * 5.75);
+		min-width: calc(var(--index) * 4);
+		object-fit: cover;
+		object-position: top;
+	}
+}
+
+.large {
+	@apply relative z-2;
+
+	&::before {
+		@apply w-0.75 absolute left-0 bg-gradient-to-r from-black from-10% to-gray
+	  to-55%  border-r border-black z-3 rounded-l-md;
+		top: 1px;
+		height: calc(100% - 2px);
+		opacity: 0.15;
+		content: '';
+		filter: blur(1px);
+		box-shadow: inset 20px 0 rgba(11, 11, 11, 0.17);
+	}
+
+	&::after {
+		@apply w-full h-full absolute bg-gradient-to-r from-black from-80% to-shadow-bg to-95% opacity-25;
+		content: '';
+		top: calc(var(--index) * 1.5);
+		left: 1.1rem;
+		box-shadow: inset 10px 0 rgba(11, 11, 11, 0.17);
+		clip-path: polygon(83% 5%, 100% 20%, 100% 80%, 28% 80%, 3% 54%, 3% 0%);
+		transform: scale(1.2);
+		filter: blur(10px);
+		z-index: -1;
+	}
+
+	.booksPages {
+		@apply absolute h-full z-2 w-0.4 -right-0.4 top-0 bg-shadow-bg border-r
+  border-black opacity-90;
+		clip-path: polygon(0 0, 100% 5%, 100% 95%, 0% 100%);
+		filter: blur(1px);
+
+		@media (max-width: 933px) {
+			@apply w-0.75 -right-0.15;
+		}
+	}
+
+	img {
+		@apply rounded-md w-11 h-15;
+		object-fit: cover;
+		object-position: top;
+	}
+}
+
+.shadow {
+	@apply absolute bg-gradient-to-r from-black from-50% to-gray to-85% z-0 opacity-40;
+	height: 5%;
+	width: 20%;
+	clip-path: polygon(0 0, 0% 100%, 100% 0);
+	bottom: 0;
+	left: 100%;
+	filter: blur(1px);
+	@media (max-width: 933px) {
+		left: 95%;
+		width: 23%;
+	}
+}

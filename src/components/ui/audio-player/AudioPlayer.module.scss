@@ -1,0 +1,63 @@
+.progressBarContainer {
+	@apply bg-bg-color rounded-full relative w-full;
+	height: 4px;
+
+	input[type='range'] {
+		@apply rounded-full bg-transparent absolute top-0;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+	}
+
+	input[type='range']::-webkit-slider-runnable-track {
+		@apply h-0.5 border-none bg-bg-color rounded-full;
+		height: 4px;
+	}
+	input[type='range']::-webkit-slider-thumb {
+		@apply bg-brown rounded-full cursor-pointer;
+		-webkit-appearance: none;
+		width: 10px;
+		height: 10px;
+		margin-top: -3px;
+	}
+
+	input[type='range']::-moz-range-track {
+		@apply h-0.5 border-none bg-transparent rounded-full;
+		height: 4px;
+	}
+
+	input[type='range']::-moz-range-thumb {
+		@apply bg-brown rounded-full cursor-pointer;
+		width: 10px;
+		height: 10px;
+		margin-top: -3px;
+	}
+
+	.progressBar {
+		@apply rounded-full bg-brown absolute left-0 top-0 z-3;
+		height: 4px;
+	}
+}
+
+.iconsWrapper {
+	@apply flex items-center justify-between w-full;
+
+	.icons {
+		@apply inline-block relative fill-gray text-gray text-lg;
+
+		.disk {
+			@apply absolute w-1/2 h-1/2 bg-[#fdfdfd] rounded-full;
+			font-size: 0.45rem;
+			top: 25%;
+			left: 28%;
+		}
+	}
+
+	.playIcon {
+		@apply bg-black rounded-full text-xl fill-[#fdfdfd] p-0.15;
+
+		> svg {
+			@apply fill-[#fdfdfd];
+		}
+	}
+}

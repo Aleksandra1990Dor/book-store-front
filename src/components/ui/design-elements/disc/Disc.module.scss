@@ -1,0 +1,29 @@
+.disk {
+	@apply relative w-2.5 h-2.5 flex items-center justify-center;
+	filter: drop-shadow(8px 8px 3px rgba(50, 50, 0, 0.2));
+
+	@media (max-width: 933px) {
+		@apply w-4 h-4;
+	}
+
+	&::after {
+		@apply absolute rounded-full w-1/4 h-1/4 bg-[#fdfdfd];
+		top: 37.5%;
+		left: 37.5%;
+		content: '';
+
+		@media (max-width: 933px) {
+			@apply w-0.5 h-0.5;
+			top: 47%;
+			left: 47%;
+		}
+	}
+
+	> img {
+		@apply rounded-full border-2 border-brown  w-2.5 h-2.5;
+
+		@media (max-width: 933px) {
+			@apply w-4 h-4;
+		}
+	}
+}

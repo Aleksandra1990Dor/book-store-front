@@ -1,0 +1,42 @@
+.gallery {
+	@apply flex items-center w-full relative;
+	gap: calc(var(--index) * 2);
+
+	@media (max-width: 933px) {
+		@apply hidden;
+	}
+
+	.title {
+		@apply font-semibold;
+
+		> h2 {
+			@apply inline-block text-base text-center font-bold;
+			transform: rotate(0.75turn);
+		}
+	}
+	.window {
+		@apply h-full overflow-x-hidden;
+		padding-bottom: calc(var(--index) * 3.5);
+		margin-bottom: calc(var(--index) * -3.5);
+		min-width: calc(var(--index) * 55);
+		max-width: calc(var(--index) * 55);
+
+		.wrapper {
+			@apply flex relative transition-transform ease-in-out duration-1000;
+		}
+	}
+}
+
+.itemContent {
+	@apply flex flex-col justify-between w-max relative gap-0.3;
+	width: calc(var(--index) * 5.4);
+}
+
+.item {
+	@apply flex text-sm h-full w-13 gap-0.3 py-0.5 px-1.3;
+	gap: calc(var(--index) * 0.3);
+}
+
+.margin {
+	margin-right: calc(var(--index) * 1.25);
+}

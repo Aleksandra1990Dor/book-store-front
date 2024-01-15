@@ -1,0 +1,15 @@
+.wrapper {
+	@apply hidden;
+
+	@media (max-width: 933px) {
+		@apply flex flex-col gap-2 p-2;
+	}
+
+	> h2 {
+		@apply font-medium text-black text-2xl leading-none;
+	}
+
+	.booksWrapper {
+		@apply flex flex-col gap-0.5;
+	}
+}

@@ -1,0 +1,64 @@
+.landing {
+	@apply grid px-2 py-1;
+	grid-template-columns: 1fr 2fr;
+
+	@media (max-width: 933px) {
+		@apply flex flex-col py-0;
+	}
+
+	.titleWrapper {
+		@apply flex items-center justify-center flex-col gap-1 mb-1;
+
+		@media (max-width: 933px) {
+			@apply flex-col-reverse items-start;
+		}
+	}
+
+	h1 {
+		@apply text-2xl text-black font-bold leading-none;
+		@media (max-width: 933px) {
+			@apply font-medium;
+		}
+
+		> span {
+			@apply block;
+			@media (max-width: 933px) {
+				@apply inline;
+
+				&:last-child {
+					@apply ml-0.3;
+				}
+			}
+		}
+	}
+	.mainBookWrapper {
+		@apply relative w-12;
+	}
+
+	.subtitle {
+		@apply text-gray text-0.5-base;
+		@media (max-width: 933px) {
+			@apply hidden;
+		}
+	}
+
+	.desktopWrapper {
+		@apply flex ml-1 justify-between;
+
+		@media (max-width: 933px) {
+			@apply hidden;
+		}
+	}
+
+	.mobileWrapper {
+		@apply hidden;
+
+		@media (max-width: 933px) {
+			@apply flex gap-1 relative -bottom-1 overflow-x-scroll h-max overflow-y-hidden w-max;
+			width: calc(var(--index) * 99.9);
+		}
+		.window {
+			@apply flex gap-1 w-max overflow-x-scroll h-max overflow-y-hidden;
+		}
+	}
+}
