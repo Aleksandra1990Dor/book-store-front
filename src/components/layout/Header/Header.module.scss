@@ -38,7 +38,7 @@
 		}
 	}
 	.userIcon {
-		@apply text-xl transition-colors duration-200 ease-linear;
+		@apply text-lg transition-colors duration-200 ease-linear;
 
 		@media (max-width: 933px) {
 			@apply block text-3xl text-black;

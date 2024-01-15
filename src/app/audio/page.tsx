@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import booksService from '@/services/books.service'
 import AllAudioBooks from './AudioBooks'
 import { IBook } from '@/types/books.types'
+import { ENUM_SEARCH } from '@/types/sort.types'
 
 export const metadata: Metadata = {
 	title: 'АудиоКниги'
@@ -11,7 +12,8 @@ export const revalidate = 60
 
 export async function getAudioBooks(): Promise<IBook[]> {
 	const books = await booksService.getAll({
-		searchTerm: ''
+		searchTerm: '',
+		sort: ENUM_SEARCH.AUDIO
 	})
 
 	return books

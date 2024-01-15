@@ -16,7 +16,7 @@ const AllAudioBooks: FC<{ books: IBook[] }> = ({ books }) => {
 			<h2 className="font-bold text-black text-xl leading-none mb-2">
 				Аудио Книги:
 			</h2>
-			<div className="flex gap-2 px-2">
+			<div className="flex gap-2 px-2 flex-wrap">
 				{items.map(book => (
 					<AudioBook book={book} key={book.id} />
 				))}
