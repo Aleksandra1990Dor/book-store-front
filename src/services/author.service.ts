@@ -3,7 +3,7 @@ import { axiosClassic } from '@/api/api.interceptor'
 import { getAuthorsServerUrl } from '@/config/server-url.config'
 
 class AuthorService {
-	async getAll() {
+	async getAll(): Promise<IAuthor[]> {
 		const data = await axiosClassic<IAuthor[]>(getAuthorsServerUrl(''))
 		return data.data
 	}

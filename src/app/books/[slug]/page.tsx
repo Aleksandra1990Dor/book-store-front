@@ -7,19 +7,19 @@ import { IBook } from '@/types/books.types'
 
 export const revalidate = 60
 
+type PageProps = {
+	params: { slug: string }
+}
+
 export async function generateStaticParams() {
 	const books = await booksService.getAll({})
 
-	const paths = books.map(book => {
-		return {
-			params: { slug: book.slug }
-		}
-	})
+	const paths = books.map(book => ({ slug: book.slug }))
 
 	return paths
 }
 
-async function getBook(params: TypeParamSlug): Promise<IBook> {
+async function getBook({ params }: PageProps): Promise<IBook> {
 	const book = await booksService.bySlug(params?.slug as string)
 
 	return book
@@ -27,8 +27,8 @@ async function getBook(params: TypeParamSlug): Promise<IBook> {
 
 export async function generateMetadata({
 	params
-}: IPageSlugParam): Promise<Metadata> {
-	const book = await getBook(params)
+}: PageProps): Promise<Metadata> {
+	const book = await getBook({ params })
 
 	return {
 		title: book.name,
@@ -40,8 +40,8 @@ export async function generateMetadata({
 	}
 }
 
-export default async function SingleBookPage({ params }: IPageSlugParam) {
-	const book = await getBook(params)
+export default async function SingleBookPage({ params }: PageProps) {
+	const book = await getBook({ params })
 
 	return <SingleBook book={book} />
 }

@@ -3,7 +3,7 @@ import { getCategoryServerUrl } from '@/config/server-url.config'
 import { ICategory } from '@/types/category.types'
 
 class CategoryService {
-	async getAll() {
+	async getAll(): Promise<ICategory[]> {
 		const data = await axiosClassic<ICategory[]>(getCategoryServerUrl(''))
 		return data.data
 	}

@@ -4,7 +4,7 @@ import { IBook } from '@/types/books.types'
 import { ISearchParams } from '@/types/sort.types'
 
 class BookService {
-	async getAll(params: ISearchParams) {
+	async getAll(params: ISearchParams): Promise<IBook[]> {
 		const data = await axiosClassic.get<IBook[]>(getBooksServerUrl(''), {
 			params: params
 		})

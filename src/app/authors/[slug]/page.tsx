@@ -1,10 +1,13 @@
 import booksService from '@/services/books.service'
-import { IPageSlugParam, TypeParamSlug } from '@/types/page-params'
 import type { Metadata } from 'next'
 import authorService from '@/services/author.service'
 import SingleAuthor from './SingleAuthor'
 import { getImageUrl } from '@/config/image-url.config'
 import { IAuthor, IBook } from '@/types/books.types'
+
+type PageProps = {
+	params: { slug: string }
+}
 
 interface ReturnType {
 	author: IAuthor
@@ -16,16 +19,12 @@ export const revalidate = 60
 export async function generateStaticParams() {
 	const authors = await authorService.getAll()
 
-	const paths = authors.map(author => {
-		return {
-			params: { slug: author.slug }
-		}
-	})
+	const paths = authors.map(author => ({ slug: author.slug }))
 
 	return paths
 }
 
-export async function getAuthor(params: TypeParamSlug): Promise<ReturnType> {
+export async function getAuthor({ params }: PageProps): Promise<ReturnType> {
 	const author = await authorService.bySlug(params?.slug as string)
 	const books = await booksService.byAuthor(author.id)
 
@@ -34,8 +33,8 @@ export async function getAuthor(params: TypeParamSlug): Promise<ReturnType> {
 
 export async function generateMetadata({
 	params
-}: IPageSlugParam): Promise<Metadata> {
-	const { author } = await getAuthor(params)
+}: PageProps): Promise<Metadata> {
+	const { author } = await getAuthor({ params })
 
 	return {
 		title: author.fullName,
@@ -46,7 +45,7 @@ export async function generateMetadata({
 	}
 }
 
-export default async function SingleCategoryPage({ params }: IPageSlugParam) {
-	const { author, books } = await getAuthor(params)
+export default async function SingleCategoryPage({ params }: PageProps) {
+	const { author, books } = await getAuthor({ params })
 	return <SingleAuthor author={author} books={books} />
 }

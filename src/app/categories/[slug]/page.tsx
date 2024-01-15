@@ -8,21 +8,21 @@ import { IBook } from '@/types/books.types'
 
 export const revalidate = 60
 
+type PageProps = {
+	params: { slug: string }
+}
+
 export async function generateStaticParams() {
 	const categories = await categoryService.getAll()
 
-	const paths = categories.map(category => {
-		return {
-			params: { slug: category.slug }
-		}
-	})
+	const paths = categories.map(category => ({ slug: category.slug }))
 
 	return paths
 }
 
-export async function getCategoryBooks(
-	params: TypeParamSlug
-): Promise<IBook[]> {
+export async function getCategoryBooks({
+	params
+}: PageProps): Promise<IBook[]> {
 	const booksByCategory = await booksService.byCategorySlug(
 		params?.slug as string
 	)
@@ -32,8 +32,8 @@ export async function getCategoryBooks(
 
 export async function generateMetadata({
 	params
-}: IPageSlugParam): Promise<Metadata> {
-	const booksByCategory = await getCategoryBooks(params)
+}: PageProps): Promise<Metadata> {
+	const booksByCategory = await getCategoryBooks({ params })
 
 	return {
 		title: booksByCategory[0].category.name,
@@ -44,7 +44,7 @@ export async function generateMetadata({
 	}
 }
 
-export default async function SingleCategoryPage({ params }: IPageSlugParam) {
-	const books = await getCategoryBooks(params)
+export default async function SingleCategoryPage({ params }: PageProps) {
+	const books = await getCategoryBooks({ params })
 	return <SingleCategory books={books} />
 }
