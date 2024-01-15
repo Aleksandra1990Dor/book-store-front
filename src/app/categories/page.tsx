@@ -1,6 +1,7 @@
 import categoryService from '@/services/category.service'
 import type { Metadata } from 'next'
 import AllCategories from '../../components/screens/Categories/AllCategories'
+import { ICategory } from '@/types/category.types'
 
 export const metadata: Metadata = {
 	title: 'Категории Книг'
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
 
 export const revalidate = 60
 
-export async function getCategories() {
+export async function getCategories(): Promise<ICategory[]> {
 	const categories = await categoryService.getAll()
 
 	return categories

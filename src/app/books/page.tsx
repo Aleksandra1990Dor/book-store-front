@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import AllBooks from '../books/AllBooks'
 import booksService from '@/services/books.service'
+import { IBook } from '@/types/books.types'
 
 export const metadata: Metadata = {
 	title: 'Книги'
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
 
 export const revalidate = 60
 
-export async function getAllBooks() {
+export async function getAllBooks(): Promise<IBook[]> {
 	const books = await booksService.getAll({})
 
 	return books

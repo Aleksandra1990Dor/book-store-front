@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { NO_INDEX_PAGE } from '@/constants/seo.constants'
 import Auth from '../../components/screens/Auth/Auth'
 import booksService from '@/services/books.service'
+import { IBook } from '@/types/books.types'
 
 export const metadata: Metadata = {
 	title: 'Auth',
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
 
 export const validate = 60
 
-async function getBooks() {
+async function getBooks(): Promise<IBook[]> {
 	const data = await booksService.getAll({})
 
 	return data

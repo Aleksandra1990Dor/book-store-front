@@ -3,6 +3,7 @@ import { IPageSlugParam, TypeParamSlug } from '@/types/page-params'
 import booksService from '@/services/books.service'
 import SingleBook from './SingleBook'
 import { convertMetaUrl } from '@/utils/convert-meta-url'
+import { IBook } from '@/types/books.types'
 
 export const revalidate = 60
 
@@ -18,7 +19,7 @@ export async function generateStaticParams() {
 	return paths
 }
 
-async function getBook(params: TypeParamSlug) {
+async function getBook(params: TypeParamSlug): Promise<IBook> {
 	const book = await booksService.bySlug(params?.slug as string)
 
 	return book

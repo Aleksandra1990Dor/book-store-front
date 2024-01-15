@@ -4,6 +4,12 @@ import type { Metadata } from 'next'
 import authorService from '@/services/author.service'
 import SingleAuthor from './SingleAuthor'
 import { getImageUrl } from '@/config/image-url.config'
+import { IAuthor, IBook } from '@/types/books.types'
+
+interface ReturnType {
+	author: IAuthor
+	books: IBook[]
+}
 
 export const revalidate = 60
 
@@ -19,7 +25,7 @@ export async function generateStaticParams() {
 	return paths
 }
 
-export async function getAuthor(params: TypeParamSlug) {
+export async function getAuthor(params: TypeParamSlug): Promise<ReturnType> {
 	const author = await authorService.bySlug(params?.slug as string)
 	const books = await booksService.byAuthor(author.id)
 

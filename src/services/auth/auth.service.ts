@@ -1,4 +1,3 @@
-import { IUser } from './../../types/user.types'
 import { IAuthResponse, IUserState } from '@/store/user/user.interface'
 import { removeTokensStorage, saveToStorage } from './auth.helper'
 import Cookies from 'js-cookie'

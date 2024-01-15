@@ -4,6 +4,7 @@ import { IPageSlugParam, TypeParamSlug } from '@/types/page-params'
 import type { Metadata } from 'next'
 import SingleCategory from '../../../components/screens/Categories/SingleCategory'
 import { convertMetaUrl } from '@/utils/convert-meta-url'
+import { IBook } from '@/types/books.types'
 
 export const revalidate = 60
 
@@ -19,7 +20,9 @@ export async function generateStaticParams() {
 	return paths
 }
 
-export async function getCategoryBooks(params: TypeParamSlug) {
+export async function getCategoryBooks(
+	params: TypeParamSlug
+): Promise<IBook[]> {
 	const booksByCategory = await booksService.byCategorySlug(
 		params?.slug as string
 	)

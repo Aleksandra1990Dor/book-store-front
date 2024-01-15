@@ -21,4 +21,6 @@ class OrderService {
 	}
 }
 
-export default new OrderService()
+const orderService = new OrderService()
+
+export default orderService
