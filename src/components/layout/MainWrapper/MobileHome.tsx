@@ -5,6 +5,7 @@ import authorService from '@/services/author.service'
 import booksService from '@/services/books.service'
 import { ENUM_SEARCH } from '@/types/sort.types'
 import type { FC, PropsWithChildren } from 'react'
+import styles from './MobileHome.module.scss'
 
 export async function getBooks() {
 	const books = await booksService.getAll({
@@ -22,7 +23,7 @@ const MobileHome: FC<PropsWithChildren> = async ({ children }) => {
 	return (
 		<>
 			{children}
-			<div className="relative">
+			<div className={styles.home}>
 				<Table />
 				<AudioBooksMobile books={books} />
 				<AuthorsMobile authors={popularAuthors} title="Популярные авторы" />

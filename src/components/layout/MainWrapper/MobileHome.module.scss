@@ -1,0 +1,7 @@
+.home {
+	@apply hidden;
+
+	@media (max-width: 933px) {
+		@apply block relative;
+	}
+}
