@@ -14,7 +14,7 @@
 }
 
 body {
-	@apply bg-bg-color py-1 min-h-screen overflow-x-hidden flex justify-center items-center;
+	@apply bg-secondary-bg lg:bg-bg-color py-1 min-h-screen overflow-x-hidden flex justify-center items-center;
 
 	@media (max-width: 933px) {
 		@apply block overflow-x-hidden py-0;
@@ -37,7 +37,7 @@ input[type='search']::-webkit-search-results-decoration {
 	width: calc(var(--index) * 55);
 
 	@media (max-width: 933px) {
-		@apply w-full shadow-none flex flex-col rounded-none min-h-screen bg-secondary-bg overflow-x-hidden;
+		@apply w-full shadow-none flex flex-col rounded-none min-h-screen bg-secondary-bg overflow-x-hidden relative;
 	}
 }
 

@@ -33,17 +33,17 @@ const SingleBook: FC<{ book: IBook }> = ({ book }) => {
 							<h2 className="font-bold text-brown text-1.5xl underline leading-none mb-0.5">
 								{book.name}
 							</h2>
-							<div className="flex items-center gap-0.5">
-								<div className="text-black text-1.5xl font-bold">
-									{convertPrice(book.price)}
-								</div>
-								<Button
-									size="large"
-									text="В корзину"
-									variant="color"
-									onClick={() => handleAddToCart(book)}
-								/>
+							{/* <div className="flex items-center gap-0.5"> */}
+							<div className="text-black text-1.5xl font-bold">
+								{convertPrice(book.price)}
 							</div>
+							<Button
+								size="large"
+								text="В корзину"
+								variant="color"
+								onClick={() => handleAddToCart(book)}
+							/>
+							{/* </div> */}
 						</div>
 					</div>
 					<div className={styles.mobileTable}>

@@ -1,5 +1,5 @@
 .item {
-	@apply flex flex-col items-center hover:scale-105 transition-transform duration-200 gap-0.5 text-light-brown hover:text-[#3e1e02];
+	@apply flex flex-col items-center lg:hover:scale-105 transition-transform duration-200 gap-0.5 text-light-brown lg:hover:text-[#3e1e02];
 
 	@media (max-width: 933px) {
 		@apply flex-row w-full gap-2;

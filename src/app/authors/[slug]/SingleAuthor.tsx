@@ -28,7 +28,7 @@ const SingleAuthor: FC<{ author: IAuthor; books: IBook[] }> = ({
 						alt={author.fullName}
 						className="rounded-full border border-brown h-10 w-10 object-cover"
 					/>
-					<h2 className="font-bold text-black text-xl leading-none mb-0.5">
+					<h2 className="font-bold text-black text-xl leading-none mb-0.5 text-center">
 						{author.fullName}
 					</h2>
 				</div>

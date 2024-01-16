@@ -12,36 +12,64 @@ import BreadCrumbs from '@/components/ui/bread-crumbs/BreadCrumbs'
 import { getAudioBreadCrumbs } from '@/utils/get-bread-crumbs'
 import AudioCard from '@/components/ui/cards/AudioCard'
 import { useCart } from '@/hooks/useCart'
+import styles from '../../books/[slug]/SingleBook.module.scss'
+import Table from '@/components/ui/design-elements/table/Table'
+import { IoMdClose } from 'react-icons/io'
 
 const SingleBook: FC<{ book: IBook }> = ({ book }) => {
 	const [isShown, setIsShown] = useState(false)
 	const { handleAddToCart } = useCart()
 
 	return (
-		<div className={cn('px-2 mb-4', gentium.className)}>
+		<div className={cn(styles.wrapper, 'mb-4', gentium.className)}>
 			<BreadCrumbs items={getAudioBreadCrumbs(book)} />
 			{/* main */}
-			<div className="grid px-2" style={{ gridTemplateColumns: '35% 1fr' }}>
+			<div className={styles.container}>
 				{/* right-side book */}
-				<div className="relative ml-2 h-14 w-full">
-					<button onClick={() => setIsShown(false)}>
-						<MainBook book={book} />
-					</button>
-					<div className="absolute top-2 left-1 z-3">
-						{isShown && <AudioCard audioBook={book} />}
+				<div>
+					<div className="flex gap-1 justify-between">
+						<div className={styles.singleBook}>
+							<MainBook book={book} />
+						</div>
+						<div className="lg:hidden flex flex-col gap-0.5 justify-center h-full">
+							<div className="text-lg text-gray leading-none">
+								{book.author.fullName}
+							</div>
+							<h2 className="font-bold text-brown text-1.5xl underline leading-none mb-0.5">
+								{book.name}
+							</h2>
+							<div className="flex flex-col gap-1">
+								<div className="text-black text-1.5xl leading-none font-bold">
+									{convertPrice(book.price)}
+								</div>
+								<div className="flex items-center gap-0.5">
+									<Button
+										size="small"
+										text="В корзину"
+										variant="color"
+										onClick={() => handleAddToCart(book)}
+									/>
+									<Button
+										size="small"
+										text="Слушать"
+										variant="color"
+										onClick={() => setIsShown(true)}
+									/>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div className={styles.mobileTable}>
+						<Table />
 					</div>
 				</div>
 				{/* left-side description */}
-				<div className="flex gap-0.3 flex-col px-2">
-					<div className="text-sm text-gray">{book.author.fullName}</div>
-					<h2 className="font-bold text-brown text-xl underline leading-none mb-0.5">
-						{book.name}
-					</h2>
+				<div className={styles.info}>
+					<div className={styles.authorDesc}>{book.author.fullName}</div>
+					<h2 className={styles.titleDesc}>{book.name}</h2>
 					<BookRating />
-					{/* description */}
-					<p className="my-0.5 text-black text-base">{book.description}</p>
-					{/* add to card block */}
-					<div className="flex items-center gap-1 ">
+					<p className={styles.description}>{book.description}</p>
+					<div className={styles.addToCart}>
 						<div className="text-black text-xl font-bold">
 							{convertPrice(book.price)}
 						</div>
@@ -60,6 +88,19 @@ const SingleBook: FC<{ book: IBook }> = ({ book }) => {
 					</div>
 				</div>
 			</div>
+			{isShown && (
+				<div className="absolute bottom-6 right-4 lg:bottom-2 lg:right-2 z-3">
+					<div className="relative">
+						<button
+							onClick={() => setIsShown(false)}
+							className="absolute -top-0.5 -right-0.5 z-3"
+						>
+							<IoMdClose className="texl-lg lg:text-base fill-gray opacity-60 hover:opacity-100 hover:scale-105 transition-transform duration-200" />
+						</button>
+						<AudioCard audioBook={book} />
+					</div>
+				</div>
+			)}
 		</div>
 	)
 }

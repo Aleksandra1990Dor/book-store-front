@@ -24,7 +24,7 @@ const Cart: FC = () => {
 	return (
 		<div className={cn('pt-1 pb-2 px-2 lg:px-4', gentium.className)}>
 			<div className="flex justify-between items-start">
-				<h2 className="font-bold text-black text-2xl lg:text-xl leading-none mb-3">
+				<h2 className="font-bold text-black text-2xl lg:text-xl leading-none mb-3 lg:mb-1">
 					Корзина:
 				</h2>
 				{!!cartItems.length && (
@@ -46,7 +46,7 @@ const Cart: FC = () => {
 					className="flex flex-col gap-5 lg:grid"
 					style={{ gridTemplateColumns: '1fr 20%' }}
 				>
-					<div className="flex gap-2 lg:gap-2 justify-start flex-wrap">
+					<div className="flex gap-2 lg:gap-2 lg:px-2 justify-start flex-wrap">
 						{cartItems.map(item => (
 							<CartItem
 								key={item.id}

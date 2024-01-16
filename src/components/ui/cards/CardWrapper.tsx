@@ -8,6 +8,7 @@ interface ICard {
 	title?: string
 	name: string
 	text: string
+	isAudio?: boolean
 }
 
 const Card: FC<PropsWithChildren<ICard>> = ({
@@ -15,10 +16,15 @@ const Card: FC<PropsWithChildren<ICard>> = ({
 	children,
 	title,
 	name,
-	text
+	text,
+	isAudio
 }) => {
 	return (
-		<div className={styles.mainWrapper}>
+		<div
+			className={cn(styles.mainWrapper, {
+				[styles.audioMobile]: isAudio
+			})}
+		>
 			<div className={cn(styles.wrapper, className, gentium.className)}>
 				{title && (
 					<div className={styles.title}>

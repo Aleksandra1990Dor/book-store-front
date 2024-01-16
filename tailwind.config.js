@@ -75,7 +75,7 @@ module.exports = {
 				18: 'calc(calc(1vh + 1vw) * 18)',
 				20: '80px',
 				24: '96px',
-				28: '112px',
+				28: 'calc(calc(1vh + 1vw) * 23)',
 				32: '128px',
 				36: '144px',
 				40: '160px',

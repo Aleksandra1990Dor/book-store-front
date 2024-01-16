@@ -21,8 +21,11 @@ const AudioCard: FC<IAudioCard> = ({ audioBook, title }) => {
 			title={title}
 			name={audioBook.name}
 			text={audioBook.author.fullName}
+			isAudio
 		>
-			<Disc src={audioBook.images[0]} />
+			<div className="max-lg:hidden">
+				<Disc src={audioBook.images[0]} />
+			</div>
 			<Suspense fallback={<Loader />}>
 				<AudioPlayer audioUrl={audioBook.audioUrl} />
 			</Suspense>

@@ -70,3 +70,7 @@
 		@apply w-8 h-8;
 	}
 }
+
+.audioMobile {
+	@apply max-lg:w-28 max-lg:h-10;
+}

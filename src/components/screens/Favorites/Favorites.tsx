@@ -11,7 +11,7 @@ import Loader from '@/components/ui/Loader'
 const Favorites: FC = () => {
 	const { favoriteBooks, isLoading } = useProfile()
 	return (
-		<div className={cn('pb-3 px-2', gentium.className)}>
+		<div className={cn(' px-2', gentium.className)}>
 			<BreadCrumbs items={getFavoritesBreadCrumbs()} />
 			<div className="lg:px-2">
 				<h2 className="font-bold text-black text-xl leading-none mb-2">

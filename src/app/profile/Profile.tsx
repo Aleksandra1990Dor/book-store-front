@@ -76,7 +76,7 @@ const Profile: FC = () => {
 								Избранное:
 							</h2>
 							{favoriteBooks?.length ? (
-								<div className="flex flex-wrap lg:px-2 h-max">
+								<div className="flex flex-wrap h-max">
 									{favoriteBooks.slice(0, 2).map(book => (
 										<GalleryItem book={book} key={book.id} className="h-max" />
 									))}
