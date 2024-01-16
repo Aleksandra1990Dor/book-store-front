@@ -11,6 +11,7 @@ import Image from 'next/image'
 import Loader from '@/components/ui/Loader'
 import { getImageUrl } from '@/config/image-url.config'
 import { formatDate } from '@/utils/format-date'
+import { useActions } from '@/hooks/useActions'
 
 const Profile: FC = () => {
 	const { user } = useAuth()
@@ -18,6 +19,7 @@ const Profile: FC = () => {
 	if (!user) push('/auth')
 
 	const { profile, favoriteBooks, isLoading } = useProfile()
+	const { logout } = useActions()
 
 	return (
 		<div className={cn('px-0 lg:px-2 mb-1 py-1', gentium.className)}>
@@ -39,9 +41,12 @@ const Profile: FC = () => {
 							alt={profile?.name || ''}
 							className="rounded-full border border-brown h-7 w-7 object-cover"
 						/>
-						<h2 className="font-bold text-brown underline text-xl lg:text-lg leading-none mb-0.5">
+						<h2 className="font-bold text-brown underline text-2xl lg:text-lg leading-none mb-0.5">
 							{profile?.email}
 						</h2>
+						<button className="text-gray max-lg:underline text-base lg:text-sm leading-none mb-0.5 lg:hover:text-brown">
+							Выйти
+						</button>
 					</div>
 					<div className="ml-0 lg:ml-6">
 						<div className="flex flex-col gap-3 lg:gap-1 h-max mb-1">

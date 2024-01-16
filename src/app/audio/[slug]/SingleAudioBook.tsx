@@ -90,7 +90,7 @@ const SingleBook: FC<{ book: IBook }> = ({ book }) => {
 			</div>
 			{isShown && (
 				<div className="absolute bottom-6 right-4 lg:bottom-2 lg:right-2 z-3">
-					<div className="relative">
+					<div className="max-lg:relative">
 						<button
 							onClick={() => setIsShown(false)}
 							className="absolute -top-0.5 -right-0.5 z-3"
