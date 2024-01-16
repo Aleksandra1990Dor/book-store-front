@@ -40,7 +40,7 @@
 }
 
 .iconsWrapper {
-	@apply flex items-center gap-1 justify-between w-max lg:w-full;
+	@apply flex items-center max-lg:gap-1 justify-between w-max lg:w-full;
 
 	.icons {
 		@apply inline-block relative fill-gray text-gray text-xl lg:text-lg;
