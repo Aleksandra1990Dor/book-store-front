@@ -5,15 +5,17 @@ import GalleryItem from '@/components/ui/gallery/GalleryItem'
 import { useAuth } from '@/hooks/useAuth'
 import { useProfile } from '@/hooks/useProfile'
 import { useRouter } from 'next/navigation'
-import type { FC } from 'react'
+import { useState, type FC } from 'react'
 import cn from 'clsx'
 import Image from 'next/image'
 import Loader from '@/components/ui/Loader'
 import { getImageUrl } from '@/config/image-url.config'
 import { formatDate } from '@/utils/format-date'
 import { useActions } from '@/hooks/useActions'
+import SkeletonLoader from '@/components/ui/design-elements/skeleton/SkeletonLoader'
 
 const Profile: FC = () => {
+	const [isImageLoading, setIsImageLoading] = useState(false)
 	const { user } = useAuth()
 	const { push } = useRouter()
 	if (!user) push('/auth')
@@ -34,13 +36,24 @@ const Profile: FC = () => {
 					style={{ gridTemplateColumns: '20% 1fr' }}
 				>
 					<div className="flex items-center flex-col gap-1 pt-1 mb-2 lg:mb-0">
-						<Image
-							src={getImageUrl(profile?.avatarPath as string) || ''}
-							height={200}
-							width={200}
-							alt={profile?.name || ''}
-							className="rounded-full border border-brown h-7 w-7 object-cover"
-						/>
+						<div className="relative h-7 w-7 rounded-full border border-brown overflow-hidden">
+							{isImageLoading && (
+								<SkeletonLoader
+									containerClassName="absolute -top-0.3 left-0 block w-full h-full"
+									className="w-full h-full"
+									count={1}
+								/>
+							)}
+							<Image
+								src={getImageUrl(profile?.avatarPath as string) || ''}
+								height={200}
+								width={200}
+								alt={profile?.name || ''}
+								className="rounded-full  h-7 w-7 object-cover"
+								onLoadStart={() => setIsImageLoading(true)}
+								onLoadingComplete={() => setIsImageLoading(false)}
+							/>
+						</div>
 						<h2 className="font-bold text-brown underline text-2xl lg:text-lg leading-none mb-0.5">
 							{profile?.email}
 						</h2>

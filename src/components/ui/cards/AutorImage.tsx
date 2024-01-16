@@ -1,25 +1,25 @@
 'use client'
-import { Suspense, type FC, useState } from 'react'
-import SkeletonLoader from '../skeleton/SkeletonLoader'
-import styles from './Disc.module.scss'
 import Image from 'next/image'
+import { useState, type FC } from 'react'
+import SkeletonLoader from '../design-elements/skeleton/SkeletonLoader'
+import styles from './Card.module.scss'
 import { getImageUrl } from '@/config/image-url.config'
 
-const Disc: FC<{ src: string }> = ({ src }) => {
+const AuthorImage: FC<{ src: string }> = ({ src }) => {
 	const [isImageLoading, setIsImageLoading] = useState(false)
 	return (
-		<div className={styles.disk}>
+		<div className="w-8 h-8 relative lg:h-6-1 lg:w-6-1 lg:pl-0.15 overflow-hidden rounded-full">
 			{isImageLoading && (
 				<SkeletonLoader
-					containerClassName="absolute -top-0.15 left-0 block w-full h-full  overflow-hidden rounded-full"
-					className="w-full h-full rounded-full block"
+					containerClassName="absolute -top-0.3 left-0 block w-full h-full rounded-full"
+					className="w-full h-full"
 					count={1}
 				/>
 			)}
 			<Image
 				width={130}
 				height={130}
-				alt="Picture of the book"
+				alt="Picture of the author"
 				className={styles.img}
 				src={getImageUrl(src)}
 				loading="lazy"
@@ -30,4 +30,4 @@ const Disc: FC<{ src: string }> = ({ src }) => {
 	)
 }
 
-export default Disc
+export default AuthorImage

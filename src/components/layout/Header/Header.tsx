@@ -3,7 +3,7 @@
 import HeaderButton from './HederButton/HeaderButton'
 import { ImBooks } from 'react-icons/im'
 import { FaHeadphones } from 'react-icons/fa'
-import type { FC } from 'react'
+import { useState, type FC } from 'react'
 import styles from './Header.module.scss'
 import { usePathname } from 'next/navigation'
 import { MdOutlineBookmarkBorder } from 'react-icons/md'
@@ -15,8 +15,10 @@ import { LuUserPlus } from 'react-icons/lu'
 import { useAuth } from '@/hooks/useAuth'
 import { getImageUrl } from '@/config/image-url.config'
 import cn from 'clsx'
+import SkeletonLoader from '@/components/ui/design-elements/skeleton/SkeletonLoader'
 
 const Header: FC = () => {
+	const [isImageLoading, setIsImageLoading] = useState(false)
 	const pathname = usePathname()
 	const { user } = useAuth()
 	const isAudio = pathname.startsWith('/audio') ? true : false
@@ -57,13 +59,24 @@ const Header: FC = () => {
 					</Link>
 				) : (
 					<Link href="/profile" aria-label="profile">
-						<Image
-							src={getImageUrl(user.avatarPath)}
-							width={30}
-							height={30}
-							alt="Picture of the author"
-							className={styles.img}
-						/>
+						<div className="w-2.5 h-2.5 relative lg:h-1.3 lg:w-1.3 overflow-hidden rounded-full">
+							{isImageLoading && (
+								<SkeletonLoader
+									containerClassName="absolute top-0 left-0 block w-full h-full"
+									className="w-full h-full"
+									count={1}
+								/>
+							)}
+							<Image
+								src={getImageUrl(user.avatarPath)}
+								width={30}
+								height={30}
+								alt="Picture of the author"
+								className={styles.img}
+								onLoadStart={() => setIsImageLoading(true)}
+								onLoadingComplete={() => setIsImageLoading(false)}
+							/>
+						</div>
 					</Link>
 				)}
 				<HeaderMenu />
