@@ -6,7 +6,7 @@
 	}
 
 	> label {
-		@apply bg-light-brown hover:bg-brown text-white text-0.5-lg lg:text-sm py-0.3 px-1 lg:px-0.5 rounded-xl cursor-pointer leading-none pt-0.4 lg:pt-0;
+		@apply bg-light-brown hover:bg-brown text-white text-0.5-lg lg:text-sm py-0.3 px-1 lg:px-0.5 rounded-xl cursor-pointer leading-none max-lg:w-10;
 
 		> input {
 			@apply opacity-0 w-0 h-0;
