@@ -7,6 +7,7 @@ import { getImageUrl } from '@/config/image-url.config'
 
 const Disc: FC<{ src: string }> = ({ src }) => {
 	const [isImageLoading, setIsImageLoading] = useState(false)
+
 	return (
 		<div className={styles.disk}>
 			{isImageLoading && (

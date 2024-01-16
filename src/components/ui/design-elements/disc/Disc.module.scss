@@ -1,5 +1,5 @@
 .disk {
-	@apply relative w-2.5 h-2.5 flex items-center justify-center rounded-full;
+	@apply relative w-2.5 h-2.5 flex items-center justify-center rounded-full overflow-hidden;
 	filter: drop-shadow(8px 8px 3px rgba(50, 50, 0, 0.2));
 
 	@media (max-width: 933px) {
