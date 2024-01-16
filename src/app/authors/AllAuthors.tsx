@@ -6,16 +6,17 @@ import { gentium } from '@/app/assets/fonts'
 import AuthorCard from '@/components/ui/cards/AuthorCard'
 import { usePagination } from '@/components/ui/paginatioin/usePagination'
 import Pagination from '@/components/ui/paginatioin/Pagination'
+import styles from './AllAuthors.module.scss'
 
 const AllAuthors: FC<{ authors: IAuthor[] }> = ({ authors }) => {
 	const { isPaginated, items, onClick } = usePagination(4, 4, authors)
 
 	return (
-		<div className={cn('pt-1 pb-2 px-4', gentium.className)}>
+		<div className={cn(styles.wrapper, gentium.className)}>
 			<h2 className="font-bold text-black text-xl leading-none mb-2">
 				Популярные авторы:
 			</h2>
-			<div className="flex gap-2 justify-evenly flex-wrap">
+			<div className={styles.cards}>
 				{items.map(author => (
 					<AuthorCard author={author} key={author.id} />
 				))}

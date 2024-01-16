@@ -7,7 +7,7 @@ import BookRating from '../rating/BookRating'
 import Button from '../button/Button'
 import { IBook } from '@/types/books.types'
 import Link from 'next/link'
-import { getBookUrl } from '@/config/url.config'
+import { getAudioUrl, getBookUrl } from '@/config/url.config'
 import { useAuth } from '@/hooks/useAuth'
 import FavoriteButton from '../button/favorite-button/FavoriteButton'
 import { useCart } from '@/hooks/useCart'
@@ -19,6 +19,7 @@ type IGalleryItem = {
 	index?: number
 	book: IBook
 	className?: string
+	isAudio?: boolean
 }
 
 const GalleryItem: FC<IGalleryItem> = ({
@@ -26,7 +27,8 @@ const GalleryItem: FC<IGalleryItem> = ({
 	onClick,
 	index,
 	book,
-	className
+	className,
+	isAudio
 }) => {
 	const { user } = useAuth()
 	const { handleAddToCart } = useCart()
@@ -43,7 +45,11 @@ const GalleryItem: FC<IGalleryItem> = ({
 					<Book size="small" src={book.images[0]} className="rotate-12" />
 				</button>
 			) : (
-				<Link href={getBookUrl(`/${book.slug}`)}>
+				<Link
+					href={
+						isAudio ? getAudioUrl(`/${book.slug}`) : getBookUrl(`/${book.slug}`)
+					}
+				>
 					<Book size="small" src={book.images[0]} />
 				</Link>
 			)}

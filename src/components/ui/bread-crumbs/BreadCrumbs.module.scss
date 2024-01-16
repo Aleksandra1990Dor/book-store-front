@@ -1,0 +1,18 @@
+.wrapper {
+	@apply flex items-center text-0.5-base text-gray gap-0.3 my-1 w-full;
+
+	@media (max-width: 933px) {
+		@apply text-lg leading-none mb-4;
+	}
+
+	.link {
+		@apply hover:text-brown;
+
+		@media (max-width: 768px) {
+			@apply w-max block overflow-hidden;
+			max-width: calc(var(--index) * 6);
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+	}
+}

@@ -5,15 +5,15 @@
 		@apply w-full text-brown relative;
 
 		> span {
-			@apply inline-block mb-0.3 text-base font-semibold;
+			@apply inline-block mb-0.3 text-xl lg:text-base font-semibold;
 		}
 
 		> input {
-			@apply w-full px-0.75 py-0.3 rounded-lg placeholder:text-shadow-bg text-black  text-base focus:shadow-sm bg-white focus:shadow-brown;
+			@apply w-full px-1 lg:px-0.75 py-0.3 lg:py-0.3 rounded-lg placeholder:text-shadow-bg text-black text-xl lg:text-base focus:shadow-sm bg-white focus:shadow-brown;
 		}
 	}
 
 	> .error {
-		@apply text-sm text-[#df4c47] text-center font-semibold  mt-0.3;
+		@apply text-lg lg:text-sm text-[#df4c47] text-center font-semibold  mt-0.3;
 	}
 }

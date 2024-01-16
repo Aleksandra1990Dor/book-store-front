@@ -28,9 +28,7 @@ const Card: FC<PropsWithChildren<ICard>> = ({
 				<div className={styles.container}>
 					<div className="flex flex-col items-center gap-0.75">
 						<h3>{name}</h3>
-						<div className="text-gray text-sm text-center leading-none">
-							{text}
-						</div>
+						<div className={styles.subtitle}>{text}</div>
 					</div>
 					<div className="w-full h-full flex flex-col items-center justify-end gap-0.75">
 						{children}

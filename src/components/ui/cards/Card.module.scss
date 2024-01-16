@@ -5,13 +5,14 @@
 	&:hover {
 		transform: scale(1.015);
 	}
+
+	@media (max-width: 933px) {
+		@apply h-15 w-10;
+	}
 }
 
 .wrapper {
 	@apply h-full w-full rounded-3xl flex flex-col relative p-1 z-3 hover:shadow-lg;
-	@media (max-width: 1024px) {
-		@apply py-1 px-0.75;
-	}
 
 	.container {
 		@apply overflow-hidden h-full w-full flex flex-col justify-between items-center mt-0.5 z-2
@@ -30,6 +31,18 @@
 
 	h3 {
 		@apply text-black font-semibold text-base text-center leading-none;
+
+		@media (max-width: 933px) {
+			@apply text-lg;
+		}
+	}
+
+	.subtitle {
+		@apply text-gray text-sm text-center leading-none;
+
+		@media (max-width: 933px) {
+			@apply text-0.5-lg;
+		}
 	}
 }
 .shadow {
@@ -52,6 +65,8 @@
 
 .img {
 	@apply rounded-full border-2 border-brown w-6 h-6 object-cover;
+
+	@media (max-width: 933px) {
+		@apply w-8 h-8;
+	}
 }
-
-

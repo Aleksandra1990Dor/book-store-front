@@ -22,28 +22,31 @@ const Cart: FC = () => {
 	const [isNotificationShown, setIsNotificationShown] = useState(false)
 
 	return (
-		<div className={cn('pt-1 pb-2 px-4', gentium.className)}>
+		<div className={cn('pt-1 pb-2 px-2 lg:px-4', gentium.className)}>
 			<div className="flex justify-between items-start">
-				<h2 className="font-bold text-black text-xl leading-none mb-2">
+				<h2 className="font-bold text-black text-2xl lg:text-xl leading-none mb-3">
 					Корзина:
 				</h2>
 				{!!cartItems.length && (
 					<button
-						className="text-0.5-base text-gray flex items-center leading-none gap-0.15 opacity-60 hover:opacity-100"
+						className="lg:text-0.5-base text-0.5-lg text-gray flex items-center leading-none gap-0.15 opacity-60 hover:opacity-100"
 						onClick={() => reset()}
 					>
 						Очистить корзину
-						<IoMdClose className="text-0.5-base fill-gray" />
+						<IoMdClose className="lg:text-0.5-base text-0.5-lg leading-none fill-gray" />
 					</button>
 				)}
 			</div>
 			{!cartItems.length ? (
-				<div className="text-gray text-base px-2 mb-4">
+				<div className="text-gray text-lg lg:text-base px-2 mb-4">
 					Ваша корзина пуста...
 				</div>
 			) : (
-				<div className="grid" style={{ gridTemplateColumns: '1fr 20%' }}>
-					<div className="flex gap-2 justify-start flex-wrap">
+				<div
+					className="flex flex-col gap-5 lg:grid"
+					style={{ gridTemplateColumns: '1fr 20%' }}
+				>
+					<div className="flex gap-2 lg:gap-2 justify-start flex-wrap">
 						{cartItems.map(item => (
 							<CartItem
 								key={item.id}
@@ -55,9 +58,9 @@ const Cart: FC = () => {
 						))}
 					</div>
 					<div className="flex flex-col items-center gap-1 py-2">
-						<h3 className="text-black font-bold text-0.5-lg leading-none">
+						<h3 className="text-black font-bold texl-xl lg:text-0.5-lg leading-none">
 							Итого:
-							<span className="text-xl text-brown underline ml-0.75">
+							<span className="text-2xl lg:text-xl text-brown underline ml-0.75">
 								{convertPrice(defaultSum)}
 							</span>
 						</h3>

@@ -19,8 +19,9 @@ const Button: FC<IButton> = ({ text, size, variant, onClick, disabled }) => {
 				'cursor-pointer rounded-full px-0.75 py-0.3 w-max transition-all duration-200 active:opacity-70 hover:-translate-y-translate active:translate-y-0 ',
 				montserrat.className,
 				{
-					'text-0.5-sm': size === 'small',
-					'text-sm font-semibold px-1 rounded-xl py-0.4': size === 'large',
+					'text-base leading-none lg:text-0.5-sm': size === 'small',
+					'text-lg lg:text-sm font-semibold px-1 rounded-xl py-0.4':
+						size === 'large',
 					'border border-light-brown text-light-brown hover:bg-light-brown hover:text-white':
 						variant === 'transparent',
 					'bg-light-brown text-white hover:bg-brown ': variant === 'color'

@@ -1,0 +1,15 @@
+.wrapper {
+	@apply pt-1 pb-2 px-4;
+
+	@media (max-width: 933px) {
+		@apply px-2 pb-0;
+	}
+
+	.cards {
+		@apply flex gap-2 justify-evenly flex-wrap mb-2;
+
+		@media (max-width: 933px) {
+			@apply gap-4 mb-4 mt-4;
+		}
+	}
+}

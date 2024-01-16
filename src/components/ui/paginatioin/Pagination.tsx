@@ -13,7 +13,7 @@ const Pagination: FC<IPagination> = ({ isPaginated, onClick }) => {
 			{isPaginated && (
 				<div className="flex w-full justify-center">
 					<FaAnglesDown
-						className="cursor-pointer text-xl text-light-brown opacity-60 hover:opacity-100 hover:text-brown hover:translate-y-translate"
+						className="cursor-pointer text-3xl lg:text-xl text-light-brown opacity-60 hover:opacity-100 hover:text-brown hover:translate-y-translate"
 						onClick={onClick}
 					/>
 				</div>

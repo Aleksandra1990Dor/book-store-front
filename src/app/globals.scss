@@ -52,7 +52,7 @@ input[type='search']::-webkit-search-results-decoration {
 	@apply hidden;
 
 	@media (max-width: 933px) {
-		@apply bg-brown px-1 py-1 flex text-white fixed bottom-0 left-0 w-full;
+		@apply bg-brown px-1 py-1 flex text-white fixed bottom-0 left-0 w-full z-50 rounded-t-3xl;
 		flex: 0 0 auto;
 		margin-top: 100%;
 	}

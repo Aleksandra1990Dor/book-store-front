@@ -2,11 +2,11 @@
 	@apply flex justify-evenly;
 
 	> span {
-		@apply text-brown inline-block text-base font-semibold;
+		@apply text-brown inline-block text-xl lg:text-base font-semibold;
 	}
 
 	> label {
-		@apply bg-light-brown hover:bg-brown text-white text-sm py-0.3 px-0.5 rounded-xl cursor-pointer;
+		@apply bg-light-brown hover:bg-brown text-white text-0.5-lg lg:text-sm py-0.3 px-1 lg:px-0.5 rounded-xl cursor-pointer leading-none pt-0.4 lg:pt-0;
 
 		> input {
 			@apply opacity-0 w-0 h-0;

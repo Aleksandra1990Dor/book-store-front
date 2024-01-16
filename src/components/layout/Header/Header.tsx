@@ -52,10 +52,7 @@ const Header: FC = () => {
 				{!user ? (
 					<Link href="/auth" aria-label="auth">
 						<LuUserPlus
-							className={cn(styles.userIcon, {
-								'text-black hover:text-brown': !pathname.startsWith('/auth'),
-								'text-brown': pathname.startsWith('/auth')
-							})}
+							className={cn(styles.userIcon, 'text-black hover:text-brown')}
 						/>
 					</Link>
 				) : (

@@ -1,0 +1,15 @@
+.item {
+	@apply flex flex-col items-center hover:scale-105 transition-transform duration-200 gap-0.5 text-light-brown hover:text-[#3e1e02];
+
+	@media (max-width: 933px) {
+		@apply flex-row w-full gap-2;
+	}
+
+	> h3 {
+		@apply font-bold leading-none text-0.5-lg mb-0.5 z-3;
+
+		@media (max-width: 933px) {
+			@apply text-2xl italic underline;
+		}
+	}
+}

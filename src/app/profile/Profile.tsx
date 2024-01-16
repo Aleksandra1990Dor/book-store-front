@@ -20,15 +20,18 @@ const Profile: FC = () => {
 	const { profile, favoriteBooks, isLoading } = useProfile()
 
 	return (
-		<div className={cn('px-2 mb-1 py-1', gentium.className)}>
+		<div className={cn('px-0 lg:px-2 mb-1 py-1', gentium.className)}>
 			{/* main */}
 			{isLoading ? (
 				<div className="p-2 mx-auto w-max">
 					<Loader />
 				</div>
 			) : (
-				<div className="grid px-2" style={{ gridTemplateColumns: '20% 1fr' }}>
-					<div className="flex items-center flex-col gap-1 pt-1">
+				<div
+					className="flex flex-col gap-3 lg:grid px-2"
+					style={{ gridTemplateColumns: '20% 1fr' }}
+				>
+					<div className="flex items-center flex-col gap-1 pt-1 mb-2 lg:mb-0">
 						<Image
 							src={getImageUrl(profile?.avatarPath as string) || ''}
 							height={200}
@@ -36,17 +39,17 @@ const Profile: FC = () => {
 							alt={profile?.name || ''}
 							className="rounded-full border border-brown h-7 w-7 object-cover"
 						/>
-						<h2 className="font-bold text-brown underline text-lg leading-none mb-0.5">
+						<h2 className="font-bold text-brown underline text-xl lg:text-lg leading-none mb-0.5">
 							{profile?.email}
 						</h2>
 					</div>
-					<div className="ml-6">
-						<div className="flex flex-col gap-1 h-max mb-1">
+					<div className="ml-0 lg:ml-6">
+						<div className="flex flex-col gap-3 lg:gap-1 h-max mb-1">
 							<h2 className="font-bold text-black text-xl leading-none">
 								Заказы:
 							</h2>
 							{profile?.orders ? (
-								<ul className="mb-2 w-3/4 flex flex-col gap-0.15">
+								<ul className="mb-2 w-full lg:w-3/4 flex flex-col gap-0.15">
 									{profile?.orders.slice(0, 3).map(order => (
 										<li
 											key={order.id}
@@ -68,12 +71,12 @@ const Profile: FC = () => {
 								</div>
 							)}
 						</div>
-						<div className="flex flex-col gap-1 h-max">
+						<div className="flex flex-col gap-3 lg:gap-1 h-max">
 							<h2 className="font-bold text-black text-xl leading-none">
 								Избранное:
 							</h2>
 							{favoriteBooks?.length ? (
-								<div className="flex flex-wrap px-2 h-max">
+								<div className="flex flex-wrap lg:px-2 h-max">
 									{favoriteBooks.slice(0, 2).map(book => (
 										<GalleryItem book={book} key={book.id} className="h-max" />
 									))}

@@ -1,0 +1,30 @@
+.mainWrapper {
+	@apply px-2 mb-4;
+
+	@media (max-width: 933px) {
+		@apply px-0 mb-0;
+	}
+
+	.breadCrumbs {
+		@media (max-width: 933px) {
+			@apply px-2;
+		}
+	}
+
+	.wrapper {
+		@apply grid px-2;
+		grid-template-columns: 30% 1fr;
+
+		@media (max-width: 933px) {
+			@apply flex flex-col items-center gap-2;
+		}
+
+		.books {
+			@apply flex flex-wrap p-2 h-max;
+
+			@media (max-width: 933px) {
+				@apply p-0;
+			}
+		}
+	}
+}

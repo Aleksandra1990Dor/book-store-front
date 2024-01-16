@@ -1,5 +1,6 @@
+'use client'
 import Image from 'next/image'
-import { Suspense, type FC } from 'react'
+import { Suspense, type FC, useState } from 'react'
 import styles from './Book.module.scss'
 import cn from 'clsx'
 import { getImageUrl } from '@/config/image-url.config'
@@ -12,6 +13,7 @@ interface IBook {
 }
 
 const Book: FC<IBook> = ({ size, className, src }) => {
+	const [isLoading, setIsLoading] = useState(true)
 	return (
 		<div
 			className={cn(styles.wrapper, className, {
@@ -19,26 +21,28 @@ const Book: FC<IBook> = ({ size, className, src }) => {
 				[styles.large]: size === 'large'
 			})}
 		>
-			<Suspense
-				fallback={
-					<SkeletonLoader
-						count={1}
-						containerClassName={
-							size === 'small' ? 'w-4 inline-block' : 'w-11 inline-block'
-						}
-						className={size === 'small' ? 'h-5.75' : 'h-15'}
-					/>
-				}
-			>
-				<Image
-					src={getImageUrl(src)}
-					width={200}
-					height={400}
-					alt="book image"
-					priority={size === 'large'}
-					loading={size === 'small' ? 'lazy' : 'eager'}
+			{isLoading && (
+				<SkeletonLoader
+					count={1}
+					containerClassName={
+						size === 'small'
+							? 'w-4 inline-block absolute -top-0.15 left-0'
+							: 'w-11 inline-block absolute -top-0.15 left-0'
+					}
+					className={size === 'small' ? 'h-5.75' : 'h-15'}
 				/>
-			</Suspense>
+			)}
+			<Image
+				src={getImageUrl(src)}
+				width={200}
+				height={400}
+				alt="book image"
+				priority={size === 'large'}
+				loading={size === 'small' ? 'lazy' : 'eager'}
+				onLoadStart={() => setIsLoading(true)}
+				onLoadingComplete={() => setIsLoading(false)}
+			/>
+			{/* </Suspense> */}
 			<div className={styles.booksPages}></div>
 			{size === 'large' && <div className={styles.shadow}></div>}
 		</div>

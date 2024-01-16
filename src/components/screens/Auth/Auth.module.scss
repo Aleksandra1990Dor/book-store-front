@@ -3,14 +3,14 @@
 }
 
 .mainWrapper {
-	@apply grid transition-all duration-200 ease-linear;
+	@apply flex lg:grid transition-all duration-200 ease-linear;
 }
 
 .formWrapper {
-	@apply p-1 flex flex-col gap-1.5;
+	@apply p-2 lg:p-1 flex flex-col gap-1.5;
 
 	.title {
-		@apply text-2xl text-black font-bold leading-none inline-block;
+		@apply text-4xl lg:text-2xl text-black font-bold leading-none inline-block;
 	}
 
 	.loginLoader {
@@ -22,10 +22,10 @@
 	}
 
 	.form {
-		@apply flex flex-col w-1/2 gap-1;
+		@apply flex flex-col w-full lg:w-1/2 gap-1;
 
 		.switchBtn {
-			@apply text-sm underline text-gray hover:text-brown font-semibold;
+			@apply text-base lg:text-sm underline text-gray hover:text-brown font-semibold;
 		}
 	}
 }

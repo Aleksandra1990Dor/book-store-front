@@ -24,7 +24,7 @@ const SingleBook: FC<{ book: IBook }> = ({ book }) => {
 			<div className={styles.container}>
 				{/* right-side book */}
 				<div>
-					<div className="flex gap-2">
+					<div className="flex gap-1 justify-between">
 						<div className={styles.singleBook}>
 							<MainBook book={book} />
 						</div>

@@ -29,10 +29,10 @@ const Auth: FC<{ books: IBook[] }> = ({ books }) => {
 			<div
 				className={cn(styles.wrapper, {
 					'mb-8': type === 'register',
-					'mb-2': type === 'login'
+					'mb-4': type === 'login'
 				})}
 			>
-				<div className="relative" style={{ width: '13rem' }}>
+				<div className="relative hidden lg:block" style={{ width: '13rem' }}>
 					<MainBook
 						book={
 							type === 'login'

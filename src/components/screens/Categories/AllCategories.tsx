@@ -10,7 +10,7 @@ const AllCategories: FC<{ categories: ICategory[] }> = ({ categories }) => {
 			<h2 className="font-bold text-black text-xl leading-none mb-2">
 				Категории книг:
 			</h2>
-			<div className="flex gap-2 justify-evenly flex-wrap">
+			<div className="flex gap-2 justify-evenly flex-wrap mt-4 lg:mt-0">
 				{categories.map(category => (
 					<AllCategoryItem key={category.id} category={category} />
 				))}

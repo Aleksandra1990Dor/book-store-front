@@ -31,7 +31,7 @@ const Field = forwardRef<HTMLInputElement, IField>(
 						<button
 							aria-label={ariaLabel}
 							onClick={e => togglePassword(e)}
-							className="absolute right-0.75 top-2"
+							className="absolute right-0.75 top-2/3 "
 						>
 							{currentType === type ? <LuEyeOff /> : <LuEye />}
 						</button>

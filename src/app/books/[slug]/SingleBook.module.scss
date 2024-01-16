@@ -25,7 +25,8 @@
 			@apply relative ml-2 h-14 w-full;
 
 			@media (max-width: 933px) {
-				@apply ml-0 w-max;
+				@apply ml-0 w-12;
+				min-width: calc(var(--index) * 12);
 			}
 		}
 
