@@ -31,9 +31,9 @@ const FavoriteButton: FC<IFavoriteButton> = ({ bookId, className }) => {
 			}
 		>
 			{isFavorite ? (
-				<IoMdHeart className="fill-brown text-base" />
+				<IoMdHeart className="fill-brown text-lg lg:text-base" />
 			) : (
-				<IoMdHeartEmpty className="fill-brown text-base" />
+				<IoMdHeartEmpty className="fill-brown text-lg lg:text-base" />
 			)}
 		</button>
 	)

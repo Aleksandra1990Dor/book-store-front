@@ -60,10 +60,10 @@ const GalleryItem: FC<IGalleryItem> = ({
 				})}
 			>
 				<BookRating />
-				<h3 className="text-wrap text-black font-bold text-sm leading-none">
+				<h3 className="text-wrap text-black font-bold text-lg lg:text-sm leading-none">
 					{book.name}
 				</h3>
-				<div className="text-gray font-medium leading-none text-0.5-sm">
+				<div className="text-gray font-medium leading-none text-0.5-lg lg:text-0.5-sm">
 					{book.author.fullName}
 				</div>
 				<Button
@@ -75,7 +75,7 @@ const GalleryItem: FC<IGalleryItem> = ({
 				{user && !lastIndex && (
 					<FavoriteButton
 						bookId={book.id}
-						className="top-0 -right-0.5 z-3 hover:scale-105"
+						className="top-0 right-0 lg:-right-0.5 z-3 hover:scale-105"
 					/>
 				)}
 			</div>

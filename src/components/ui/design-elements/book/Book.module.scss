@@ -15,7 +15,7 @@
 }
 
 .small {
-	@apply relative z-2 cursor-pointer w-4 h-5.75;
+	@apply relative z-2 cursor-pointer w-6 lg:w-4 h-8 lg:h-5.75;
 
 	&::before {
 		@apply w-0.3 absolute left-0  bg-gradient-to-r from-black from-10% to-gray
@@ -43,7 +43,7 @@
 	}
 
 	img {
-		@apply rounded-sm w-5 h-5.75;
+		@apply rounded-sm  w-6 lg:w-4 h-8 lg:h-5.75;
 		min-height: calc(var(--index) * 5.75);
 		min-width: calc(var(--index) * 4);
 		object-fit: cover;

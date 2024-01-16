@@ -9,7 +9,7 @@
 		@apply flex gap-2 justify-evenly flex-wrap mb-2;
 
 		@media (max-width: 933px) {
-			@apply gap-4 mb-4 mt-4;
+			@apply gap-x-1 gap-y-3 mb-4 mt-4;
 		}
 	}
 }

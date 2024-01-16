@@ -26,7 +26,7 @@ const Book: FC<IBook> = ({ size, className, src }) => {
 					count={1}
 					containerClassName={
 						size === 'small'
-							? 'w-4 inline-block absolute -top-0.15 left-0'
+							? 'w-6 lg:w-4 h-8 lg:h-5.75 absolute -top-0.15 left-0'
 							: 'w-11 inline-block absolute -top-0.15 left-0'
 					}
 					className={size === 'small' ? 'h-5.75' : 'h-15'}
