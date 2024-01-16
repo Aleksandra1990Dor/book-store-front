@@ -44,7 +44,10 @@ const Profile: FC = () => {
 						<h2 className="font-bold text-brown underline text-2xl lg:text-lg leading-none mb-0.5">
 							{profile?.email}
 						</h2>
-						<button className="text-gray max-lg:underline text-base lg:text-sm leading-none mb-0.5 lg:hover:text-brown">
+						<button
+							className="text-gray max-lg:underline text-base lg:text-sm leading-none mb-0.5 lg:hover:text-brown"
+							onClick={() => logout()}
+						>
 							Выйти
 						</button>
 					</div>
